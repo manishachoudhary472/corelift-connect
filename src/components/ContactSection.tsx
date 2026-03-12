@@ -13,8 +13,8 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", duration: 0.8, bounce: 0 }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
+          
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Get in <span className="gradient-text">Touch</span>
           </h2>
@@ -29,15 +29,15 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", duration: 0.8, bounce: 0 }}
-            className="space-y-8"
-          >
+            className="space-y-8">
+            
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center shrink-0">
                 <Mail className="text-primary-foreground" size={18} />
               </div>
               <div>
                 <h4 className="font-bold text-foreground mb-1">Email Us</h4>
-                <p className="text-muted-foreground">hello@fitcore.com</p>
+                <p className="text-muted-foreground">manisha@fitcore.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -46,7 +46,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-bold text-foreground mb-1">Call Us</h4>
-                <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                <p className="text-muted-foreground">+91 9041909611</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -55,7 +55,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-bold text-foreground mb-1">Visit Us</h4>
-                <p className="text-muted-foreground">123 Fitness Ave, New York, NY 10001</p>
+                <p className="text-muted-foreground">#1128 Sector 67, Mohali, 160062</p>
               </div>
             </div>
           </motion.div>
@@ -66,8 +66,8 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ type: "spring", duration: 0.8, bounce: 0, delay: 0.1 }}
             className="bg-card rounded-2xl p-8 card-shadow space-y-5"
-            onSubmit={(e) => e.preventDefault()}
-          >
+            onSubmit={(e) => e.preventDefault()}>
+            
             <Input placeholder="Your Name" className="bg-background" />
             <Input type="email" placeholder="Your Email" className="bg-background" />
             <Textarea placeholder="Your Message" rows={5} className="bg-background resize-none" />
@@ -77,8 +77,8 @@ const ContactSection = () => {
           </motion.form>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ContactSection;
