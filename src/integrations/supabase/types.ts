@@ -14,7 +14,99 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      challenges: {
+        Row: {
+          created_at: string
+          description: string
+          difficulty: string
+          duration: string
+          id: string
+          participants: number
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          difficulty: string
+          duration: string
+          id?: string
+          participants?: number
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          difficulty?: string
+          duration?: string
+          id?: string
+          participants?: number
+          title?: string
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          category: string
+          created_at: string
+          date: string
+          description: string
+          id: string
+          location: string
+          participants: number
+          title: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          date: string
+          description: string
+          id?: string
+          location: string
+          participants?: number
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          date?: string
+          description?: string
+          id?: string
+          location?: string
+          participants?: number
+          title?: string
+        }
+        Relationships: []
+      }
+      goals: {
+        Row: {
+          created_at: string
+          days_left: number
+          id: string
+          leader: string
+          participants: number
+          progress: number
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          days_left?: number
+          id?: string
+          leader: string
+          participants?: number
+          progress?: number
+          title: string
+        }
+        Update: {
+          created_at?: string
+          days_left?: number
+          id?: string
+          leader?: string
+          participants?: number
+          progress?: number
+          title?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
