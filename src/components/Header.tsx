@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -13,6 +16,16 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAuthAction = () => {
+    if (user) {
+      signOut();
+    } else {
+      navigate("/auth");
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -32,6 +45,24 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleAuthAction}
+            className="gap-2"
+          >
+            {user ? (
+              <>
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </>
+            ) : (
+              <>
+                <LogIn className="h-4 w-4" />
+                Sign In
+              </>
+            )}
+          </Button>
         </nav>
 
         {/* Mobile toggle */}
@@ -64,6 +95,27 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setMobileOpen(false);
+                  handleAuthAction();
+                }}
+                className="gap-2 w-fit"
+              >
+                {user ? (
+                  <>
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </>
+                ) : (
+                  <>
+                    <LogIn className="h-4 w-4" />
+                    Sign In
+                  </>
+                )}
+              </Button>
             </div>
           </motion.nav>
         )}
