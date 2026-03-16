@@ -42,7 +42,7 @@ const ResetPassword = () => {
         className="w-full max-w-md"
       >
         <div className="text-center mb-8">
-          <span className="text-3xl font-bold gradient-text">Fitcore</span>
+          <span className="text-3xl font-bold gradient-text">CoreLift</span>
           <p className="text-muted-foreground mt-2">Set your new password</p>
         </div>
         <div className="bg-card rounded-2xl p-8 card-shadow">
