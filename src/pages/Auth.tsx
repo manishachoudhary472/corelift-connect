@@ -73,7 +73,7 @@ const Auth = () => {
       >
         <div className="text-center mb-8">
           <a href="/" className="text-3xl font-bold tracking-tight">
-            <span className="gradient-text">Fitcore</span>
+            <span className="gradient-text">CoreLift</span>
           </a>
           <p className="text-muted-foreground mt-2">
             {isLogin ? "Sign in to your account" : "Create your account"}

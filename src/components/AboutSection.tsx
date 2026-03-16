@@ -31,10 +31,10 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="gradient-text">Fitcore</span>
+            About <span className="gradient-text">CoreLift</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Fitcore is your digital fitness hub — a place where personal commitment meets community energy. We believe fitness is more than exercise; it's a lifestyle amplified by connection.
+            CoreLift is your digital fitness hub — a place where personal commitment meets community energy. We believe fitness is more than exercise; it's a lifestyle amplified by connection.
           </p>
         </motion.div>
 

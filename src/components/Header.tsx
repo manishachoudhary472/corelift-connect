@@ -38,7 +38,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
         <a href="#home" className="text-2xl font-bold tracking-tight">
-          <span className="gradient-text">Fitcore</span>
+          <span className="gradient-text">CoreLift</span>
         </a>
 
         {/* Desktop nav */}
