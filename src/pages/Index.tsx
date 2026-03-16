@@ -6,6 +6,7 @@ import GoalsSection from "@/components/GoalsSection";
 import ChallengesSection from "@/components/ChallengesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import GuestGate from "@/components/GuestGate";
 
 const Index = () => {
   return (
@@ -13,9 +14,15 @@ const Index = () => {
       <Header />
       <HeroSection />
       <AboutSection />
-      <EventsSection />
-      <GoalsSection />
-      <ChallengesSection />
+      <GuestGate message="Sign in to view upcoming events and join the community">
+        <EventsSection />
+      </GuestGate>
+      <GuestGate message="Sign in to track your fitness goals">
+        <GoalsSection />
+      </GuestGate>
+      <GuestGate message="Sign in to participate in challenges">
+        <ChallengesSection />
+      </GuestGate>
       <ContactSection />
       <Footer />
     </div>
