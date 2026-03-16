@@ -12,7 +12,7 @@ const Footer = () => {
           <a href="#challenges" className="hover:text-foreground transition-colors">Challenges</a>
           <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
         </nav>
-        <p className="text-sm text-muted-foreground">© 2026 Fitcore. All rights reserved.</p>
+        <p className="text-sm text-muted-foreground">© 2026 CoreLift. All rights reserved.</p>
       </div>
     </footer>
   );
