@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Menu, X, LogIn, LogOut } from "lucide-react";
+import { Menu, X, LogIn, LogOut, User, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -45,24 +52,42 @@ const Header = () => {
               {link.label}
             </a>
           ))}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleAuthAction}
-            className="gap-2"
-          >
-            {user ? (
-              <>
-                <LogOut className="h-4 w-4" />
-                Sign Out
-              </>
-            ) : (
-              <>
-                <LogIn className="h-4 w-4" />
-                Sign In
-              </>
-            )}
-          </Button>
+
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                    <User className="h-3.5 w-3.5 text-primary" />
+                  </div>
+                  <span className="max-w-[100px] truncate text-xs">
+                    {user.email?.split("@")[0]}
+                  </span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer gap-2">
+                  <Settings className="h-4 w-4" />
+                  Profile & Settings
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer gap-2 text-destructive">
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleAuthAction}
+              className="gap-2"
+            >
+              <LogIn className="h-4 w-4" />
+              Sign In
+            </Button>
+          )}
         </nav>
 
         {/* Mobile toggle */}
@@ -95,27 +120,37 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setMobileOpen(false);
-                  handleAuthAction();
-                }}
-                className="gap-2 w-fit"
-              >
-                {user ? (
-                  <>
+
+              {user ? (
+                <>
+                  <button
+                    onClick={() => { setMobileOpen(false); navigate("/profile"); }}
+                    className="text-base font-medium text-foreground text-left flex items-center gap-2"
+                  >
+                    <Settings size={16} />
+                    Profile & Settings
+                  </button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => { setMobileOpen(false); signOut(); }}
+                    className="gap-2 w-fit text-destructive"
+                  >
                     <LogOut className="h-4 w-4" />
                     Sign Out
-                  </>
-                ) : (
-                  <>
-                    <LogIn className="h-4 w-4" />
-                    Sign In
-                  </>
-                )}
-              </Button>
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => { setMobileOpen(false); handleAuthAction(); }}
+                  className="gap-2 w-fit"
+                >
+                  <LogIn className="h-4 w-4" />
+                  Sign In
+                </Button>
+              )}
             </div>
           </motion.nav>
         )}
